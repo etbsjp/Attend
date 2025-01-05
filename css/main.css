@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&display=swap');
+
+#ClockDisplay.clock {
+	font-family: "Stardos Stencil", system-ui;
+	font-weight: 700;
+	font-style: normal;
+	font-size: min(18vw, 80px);
+	letter-spacing: 7px;
+}
+
+.stamping-send { background-color: var(--wp--preset--color--primary); }
+.stamping-send, .stamping-back { margin-right: 5px; }
+.attend-msg { margin-top: 30px; font-size: 20px; font-weight: bold;}
+.stamping-note-label { margin: 30px 0 0 0; font-weight: bold; }
+.stamping-note { width:100%; max-width:420px; box-sizing:border-box; font-size: 18px; }
+
+.wp-block-site-title a,
+.wp-block-post-title a { text-decoration: none; }
+
+#AttendView table {
+	background: #efefef;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.m19 { min-width: 190px; }
