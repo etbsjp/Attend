@@ -14,9 +14,9 @@ add_action( 'admin_init', 'update_nag_admin_only' );
 /*-------------------------------------------*/
 if ( ! function_exists( 'attend_styles' ) ){
 	function attend_styles() {
-		wp_enqueue_style( 'main', get_template_directory_uri() . '/css/main.css', array(), '0.0.9');
-		wp_enqueue_script( 'appf', get_template_directory_uri() . '/js/appf.js', array( 'jquery' ), '0.0.0', true );
-		wp_enqueue_script( 'ajjs', get_template_directory_uri() . '/js/ajjs.php', array( 'jquery' ), '0.0.0', true );
+		wp_enqueue_style( 'main', get_template_directory_uri() . '/css/main.css', array(), '1.0.0');
+		wp_enqueue_script( 'appf', get_template_directory_uri() . '/js/appf.js', array( 'jquery' ), '1.0.0', true );
+		wp_enqueue_script( 'ajjs', get_template_directory_uri() . '/js/ajjs.php', array( 'jquery' ), '1.0.0', true );
 	}
 	function attend_adm_styles() {
 		$_custom_files = '';
@@ -25,7 +25,7 @@ if ( ! function_exists( 'attend_styles' ) ){
 	}
 	function attend_adm_ss($_custom_files, $_file_name){
 		$_current_theme_dir = get_template_directory_uri();
-		$_custom_files .= '<script type="text/javascript" src="' .$_current_theme_dir . '/js/' . $_file_name . '?ver=0.0.0' . '"></script>';
+		$_custom_files .= '<script type="text/javascript" src="' .$_current_theme_dir . '/js/' . $_file_name . '?ver=1.0.0' . '"></script>';
 		return $_custom_files."\n";
 	}
 	add_action( 'wp_enqueue_scripts', 'attend_styles');
@@ -72,5 +72,13 @@ require_once( dirname( __FILE__ ) . '/inc/func.php' );
 require_once( dirname( __FILE__ ) . '/tools/stamping-list.php' );
 require_once( dirname( __FILE__ ) . '/tools/dailystamp-list.php' );
 require_once( dirname( __FILE__ ) . '/tools/stamplog-list.php' );
+
+require 'inc/plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/etbsjp/Attend/',
+	__FILE__,
+	'Attend'
+);
+$myUpdateChecker->setBranch( 'dist' );
 
 ?>
