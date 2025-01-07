@@ -74,7 +74,8 @@ require_once( dirname( __FILE__ ) . '/tools/dailystamp-list.php' );
 require_once( dirname( __FILE__ ) . '/tools/stamplog-list.php' );
 
 require 'inc/plugin-update-checker/plugin-update-checker.php';
-$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+$myUpdateChecker = PucFactory::buildUpdateChecker(
 	'https://github.com/etbsjp/Attend/',
 	__FILE__,
 	'Attend'
