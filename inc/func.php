@@ -346,6 +346,7 @@ if ( ! function_exists( 'update_user_stamp_id' ) ){
 		$options = get_option( 'attend-setting', Attend_Admin::options_default() );
 		$a = 1;
 		$ans = array();
+		$sort = array();
 		foreach( $array as $key => $val ){
 			$moto = explode("-", $key);
 			if($a % 2 == 0) {
@@ -389,7 +390,9 @@ if ( ! function_exists( 'update_user_stamp_id' ) ){
 			}
 			$a++;
 		}
-		array_multisort($sort, $ans);
+		if (!empty($sort)) {
+			array_multisort($sort, $ans);
+		}
 		update_user_meta( $userid , $stampymd , $ans );
 		stamping_log( serialize( $log ) );
 	}
